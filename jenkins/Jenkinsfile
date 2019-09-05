@@ -13,8 +13,10 @@ pipeline {
     }
     stages {
         stage('Build') {
+            environment {
+                PATH = "C:\\Program Files\\Git\\usr\\bin;C:\\Program Files\\Git\\bin;${env.PATH}"
+            }
             steps {
-                echo %PATH%
                 sh 'mvn -B -DskipTests clean package'
             }
         }
